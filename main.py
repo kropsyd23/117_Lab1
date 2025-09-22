@@ -10,9 +10,16 @@ import guessing_game
 
 def main():
     '''Let the user choose which game they want to play. Repeat until they don't want to play anymore.'''
-    num = 0
+
+    # welcome message
+    print('Welcome! You will get the chance to play two different games as many times as you want!')
+    print('Guessing Game is a game where you try to guess a number between 1 and 100.')
+    print('Rock-Paper-Scissors is a game where rock beats scissors, scissors beats paper, and paper beats rock.')
+    print()
+    
 
     # while the user wants to keep playing, continue prompting them to play more games
+    num = 0
     while (num != 3):
         print('Which game do you want to play? 1 Guessing Game, 2 Rock-Paper-Scissors, 3 None: ', end='')
         num = rock_paper_scissors.get_decision('Which game do you want to play? 1 Guessing Game, 2 Rock-Paper-Scissors, 3 None', 1, 2, 3)
