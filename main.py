@@ -1,7 +1,7 @@
 """
 Lab 1
 Group 7
-Authors: Sydney Kropf,
+Authors: Sydney Kropf, Elayne Vilela
 Date: 09/18/2025
 """
 
@@ -9,7 +9,24 @@ import rock_paper_scissors
 import guessing_game
 
 def main():
-    rock_paper_scissors.hello_world('Sydney')
+    '''Let the user choose which game they want to play. Repeat until they don't want to play anymore.'''
+    num = 0
+
+    # while the user wants to keep playing, continue prompting them to play more games
+    while (num != 3):
+        print('Which game do you want to play? 1 Guessing Game, 2 Rock-Paper-Scissors, 3 None: ', end='')
+        num = rock_paper_scissors.get_decision('Which game do you want to play? 1 Guessing Game, 2 Rock-Paper-Scissors, 3 None', 1, 2, 3)
+        print()
+
+        # play Guessing Game
+        if (num == 1):
+            print('(guessing game)')
+
+        # play Rock-Paper-Scissors
+        elif (num == 2):
+            rock_paper_scissors.game()
+
+    print('Have a great day!')
 
 if __name__ == "__main__":
     main()
