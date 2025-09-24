@@ -8,6 +8,36 @@ Date: 09/18/2025
 import rock_paper_scissors
 import guessing_game
 
+def get_value(text):
+    '''Returns the input as an integer if the string can be turned into an integer, and a string otherwise.
+    Author: Sydney'''
+    try:
+        return int(text)
+    except:
+        return text
+
+def get_decision(message, *args):
+    '''Returns the decision of the user. Checks if the user enters an invalid input based on parameters
+    provided and prompts the user to try again until they enter a valid input.
+    Author: Sydney'''
+    text = get_value(input())
+    matches = False
+
+    # check if the input initially passed matches one of the possible options
+    for n in args:
+        if (text == n):
+            matches = True
+
+    # if it doesn't match, continue prompting for a new input until it matches
+    while (matches == False):
+        print('Please enter a valid input! ', message, ': ', sep='', end='')
+        text = get_value(input())
+        for n in args:
+            if (text == n):
+                matches = True
+
+    return text
+
 def main():
     '''Let the user choose which game they want to play. Repeat until they don't want to play anymore.
     Author: Sydney and Elayne'''
@@ -23,7 +53,7 @@ def main():
     num = 0
     while (num != 3):
         print('Which game do you want to play? 1 Guessing Game, 2 Rock-Paper-Scissors, 3 None: ', end='')
-        num = rock_paper_scissors.get_decision('Which game do you want to play? 1 Guessing Game, 2 Rock-Paper-Scissors, 3 None', 1, 2, 3)
+        num = get_decision('Which game do you want to play? 1 Guessing Game, 2 Rock-Paper-Scissors, 3 None', 1, 2, 3)
         print()
 
         # play Guessing Game
