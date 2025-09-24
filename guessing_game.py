@@ -1,49 +1,54 @@
 import random
+import main
+
 def play_game():
     """
-    Runs one session of the guessing game.
-    The computer chooses a random number between 1 and 100.
-    The player has 5 tries to guess the number correctly.
-    After each guess, the program tells the player if the guess
-    was too high or too low. If the player runs out of tries, the
-    correct number is revealed.
-    Authors name = Elayne Vilela
+    Play rock, paper, scissors with the user until they say they want to stop.
+    Author: Sydney
     """
-    play_again = "y"
-    while play_again == "y":
-        secret_number = random.randint(1, 100)
-        tries = 5
-        guessed = False
 
-        print("I'm thinking of a number between 1 and 100.")
-        guess = int(input("Guess what it is. You have " + str(tries) + " tries: "))
+    # set initial decision to 'y' because they just chose this game in the main class
+    decision = 'y'
 
-        while tries > 0 and not guessed:
-            if guess == secret_number:
-                print("You got it!", end=" \n")
-                guessed = True
-            else:
-                tries -= 1
-                if tries == 0:
-                    print("Nope! You lost. The number was " + str(secret_number), end=" \n")
-                elif guess < secret_number:
-                    guess = int(input("Nope! Too low. Try again (" + str(tries) + " tries left): "))
-                else:
-                    guess = int(input("Nope! Too high. Try again (" + str(tries) + " tries left): "))
+    # keep running the loop while the user keeps saying 'yes'
+    while (decision == 'y'):
 
-        print("Do you want to play the guessing game again? (Y/N): ", end="")
-        play_again = input().strip().lower()
-    
-    print("Thanks for playing!") #When the loop ends (user typed "n"), print the goodbye message
+        # user makes their selection
+        print('Enter your choice: 1 rock, 2 paper, 3 scissors: ', end='')
+        num_user = main.get_decision_range('Enter your choice: 1 rock, 2 paper, 3 scissors', 1, 3)
 
+        # computer makes its selection
+        num_computer = random.randint(1, 3)
 
-def main():
-    """
-    Entry point for the guessing game when run directly.
-    """
-    play_game()
+        # calculate winner (1 beats 3, 2 beats 1, 3 beats 2)
+        if (num_user == 1):
+            if (num_computer == 1):
+                print('I chose rock. It is a tie!')
+            elif (num_computer == 2):
+                print('Paper beats rock. You lose!')
+            elif (num_computer == 3):
+                print('Rock beats scissors. You win!')
+
+        elif (num_user == 2):
+            if (num_computer == 1):
+                print('Paper beats rock. You win!')
+            elif (num_computer == 2):
+                print('I chose paper. It is a tie!')
+            elif (num_computer == 3):
+                print('Scissors beats paper. You lose!')
+
+        elif (num_user == 3):
+            if (num_computer == 1):
+                print('Rock beats scissors. You lose!')
+            elif (num_computer == 2):
+                print('Scissors beats paper. You win!')
+            elif (num_computer == 3):
+                print('I chose scissors. It is a tie!')
+
+        # ask the user if they want to play Rock-Paper-Scissors again
+        print('Do you want to play Rock-Paper-Scissors again? (y/n): ', sep='', end='')
+        decision = main.get_decision('Do you want to Rock-Paper-Scissors again? (y/n)', 'y', 'n')
+        print()
 
 if __name__ == "__main__":
-
-    print('From guessing_game')
-
+    play_game()
