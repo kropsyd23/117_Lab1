@@ -9,14 +9,15 @@ import rock_paper_scissors
 import guessing_game
 
 def main():
-    '''Let the user choose which game they want to play. Repeat until they don't want to play anymore.'''
+    '''Let the user choose which game they want to play. Repeat until they don't want to play anymore.
+    Author: Sydney and Elayne'''
 
     # welcome message
     print('Welcome! You will get the chance to play two different games as many times as you want!')
     print('Guessing Game is a game where you try to guess a number between 1 and 100.')
     print('Rock-Paper-Scissors is a game where rock beats scissors, scissors beats paper, and paper beats rock.')
     print()
-    
+
 
     # while the user wants to keep playing, continue prompting them to play more games
     num = 0
@@ -27,11 +28,12 @@ def main():
 
         # play Guessing Game
         if (num == 1):
-            print('(guessing game)')
+            guessing_game.play_game()
+            print()
 
         # play Rock-Paper-Scissors
         elif (num == 2):
-            rock_paper_scissors.game()
+            rock_paper_scissors.play_game()
 
     print('Have a great day!')
 

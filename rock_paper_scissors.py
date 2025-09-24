@@ -1,7 +1,8 @@
 import random
 
 def get_value(text):
-    '''Returns the input as an integer if the string can be turned into an integer, and a string otherwise.'''
+    '''Returns the input as an integer if the string can be turned into an integer, and a string otherwise.
+    Author: Sydney'''
     try:
         return int(text)
     except:
@@ -9,7 +10,8 @@ def get_value(text):
 
 def get_decision(message, *args):
     '''Returns the decision of the user. Checks if the user enters an invalid input based on parameters
-    provided and prompts the user to try again until they enter a valid input.'''
+    provided and prompts the user to try again until they enter a valid input.
+    Author: Sydney'''
     text = get_value(input())
     matches = False
 
@@ -28,16 +30,17 @@ def get_decision(message, *args):
 
     return text
 
-def game():
-    '''Play rock, paper, scissors with the user until they say they want to stop.'''
+def play_game():
+    '''Play rock, paper, scissors with the user until they say they want to stop.
+    Author: Sydney'''
     # set initial decision to 'y' because they just chose this game in the main class
     decision = 'y'
 
     # keep running the loop while the user keeps saying 'yes'
     while (decision == 'y'):
         # user makes their selection
-        print('Enter your choice: 1 paper, 2 scissors, 3 rock: ', end='')
-        num_user = get_decision('Enter your choice: 1 paper, 2 scissors, 3 rock', 1, 2, 3)
+        print('Enter your choice: 1 rock, 2 paper, 3 scissors: ', end='')
+        num_user = get_decision('Enter your choice: 1 rock, 2 paper, 3 scissors', 1, 2, 3)
 
         # computer makes its selection
         num_computer = random.randint(1, 3)
@@ -45,27 +48,27 @@ def game():
         # calculate winner (1 beats 3, 2 beats 1, 3 beats 2)
         if (num_user == 1):
             if (num_computer == 1):
-                print('It is a tie!')
+                print('I chose rock. It is a tie!')
             elif (num_computer == 2):
-                print('You lose!')
+                print('Paper beats rock. You lose!')
             elif (num_computer == 3):
-                print('You win!')
+                print('Rock beats scissors. You win!')
 
         elif (num_user == 2):
             if (num_computer == 1):
-                print('You win!')
+                print('Paper beats rock. You win!')
             elif (num_computer == 2):
-                print('It is a tie!')
+                print('I chose paper. It is a tie!')
             elif (num_computer == 3):
-                print('You lose!')
+                print('Scissors beats paper. You lose!')
 
         elif (num_user == 3):
             if (num_computer == 1):
-                print('You lose!')
+                print('Rock beats scissors. You lose!')
             elif (num_computer == 2):
-                print('You win!')
+                print('Scissors beats paper. You win!')
             elif (num_computer == 3):
-                print('It is a tie!')
+                print('I chose scissors. It is a tie!')
 
         # ask the user if they want to play Rock-Paper-Scissors again
         print('Do you want to play Rock-Paper-Scissors again? (y/n): ', sep='', end='')
@@ -73,4 +76,4 @@ def game():
         print()
 
 if __name__ == "__main__":
-    game()
+    play_game()
