@@ -2,13 +2,17 @@ import random
 import main
 
 def play_game():
-    '''Play rock, paper, scissors with the user until they say they want to stop.
-    Author: Sydney'''
+    """
+    Play rock, paper, scissors with the user until they say they want to stop.
+    Author: Sydney
+    """
+
     # set initial decision to 'y' because they just chose this game in the main class
     decision = 'y'
 
     # keep running the loop while the user keeps saying 'yes'
     while (decision == 'y'):
+
         # user makes their selection
         print('Enter your choice: 1 rock, 2 paper, 3 scissors: ', end='')
         num_user = main.get_decision_range('Enter your choice: 1 rock, 2 paper, 3 scissors', 1, 3)
