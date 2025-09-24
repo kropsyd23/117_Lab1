@@ -9,7 +9,7 @@ def play_game():
     correct number is revealed.
     Authors name = Elayne Vilela
     """
-     play_again = "y"
+    play_again = "y"
     while play_again == "y":
         secret_number = random.randint(1, 100)
         tries = 5
