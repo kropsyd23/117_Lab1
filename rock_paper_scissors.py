@@ -11,7 +11,7 @@ def play_game():
     while (decision == 'y'):
         # user makes their selection
         print('Enter your choice: 1 rock, 2 paper, 3 scissors: ', end='')
-        num_user = main.get_decision('Enter your choice: 1 rock, 2 paper, 3 scissors', 1, 2, 3)
+        num_user = main.get_decision_range('Enter your choice: 1 rock, 2 paper, 3 scissors', 1, 3)
 
         # computer makes its selection
         num_computer = random.randint(1, 3)

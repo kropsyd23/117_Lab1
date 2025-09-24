@@ -8,6 +8,32 @@ Date: 09/18/2025
 import rock_paper_scissors
 import guessing_game
 
+def get_decision_range(message, min, max):
+    '''Returns the decision of the user when the valid input is a range of integers.
+    Checks if the user inputted an integer in the range [min, max].
+    If input was not valid, continue prompting the user to try again until it is valid.
+    Author: Sydney'''
+
+    # continue prompting the user to try again until they enter a valid input
+    num = input()
+    matches = False
+    while (matches == False):
+        # if the input can be turned to an integer without error, check if it is in the correct range
+        try:
+            num = int(num)
+            if (num >= min and num <= max):
+                matches = True # change matches to True to exit the while loop
+            # if it is not between 1 and 100, raise an error to enter the catch
+            else:
+                raise ValueError()
+
+        # if the input was not an integer or an integer outside of [1, 100], prompt the user to try again
+        except:
+            print('Please enter a valid input! ', message, ': ', sep='', end='')
+            num = input()
+
+    return num
+
 def get_value(text):
     '''Returns the input as an integer if the string can be turned into an integer, and a string otherwise.
     Author: Sydney'''
@@ -53,7 +79,7 @@ def main():
     num = 0
     while (num != 3):
         print('Which game do you want to play? 1 Guessing Game, 2 Rock-Paper-Scissors, 3 None: ', end='')
-        num = get_decision('Which game do you want to play? 1 Guessing Game, 2 Rock-Paper-Scissors, 3 None', 1, 2, 3)
+        num = get_decision_range('Which game do you want to play? 1 Guessing Game, 2 Rock-Paper-Scissors, 3 None', 1, 3)
         print()
 
         # play Guessing Game
