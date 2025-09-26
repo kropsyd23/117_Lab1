@@ -1,5 +1,5 @@
 import random
-import main
+import helpers
 
 def play_game():
     """
@@ -15,7 +15,7 @@ def play_game():
 
         # user makes their selection
         print('Enter your choice: 1 rock, 2 paper, 3 scissors: ', end='')
-        num_user = main.get_decision_range('Enter your choice: 1 rock, 2 paper, 3 scissors', 1, 3)
+        num_user = helpers.get_decision_range('Enter your choice: 1 rock, 2 paper, 3 scissors', 1, 3)
 
         # computer makes its selection
         num_computer = random.randint(1, 3)
@@ -47,8 +47,5 @@ def play_game():
 
         # ask the user if they want to play Rock-Paper-Scissors again
         print('Do you want to play Rock-Paper-Scissors again? (y/n): ', sep='', end='')
-        decision = main.get_decision('Do you want to Rock-Paper-Scissors again? (y/n)', 'y', 'n')
+        decision = helpers.get_decision('Do you want to Rock-Paper-Scissors again? (y/n)', 'y', 'n')
         print()
-
-if __name__ == "__main__":
-    play_game()
